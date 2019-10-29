@@ -112,8 +112,8 @@ class AppointmentController {
     const user = await User.findByPk(req.userId);
     const formattedDate = format(
       hourStart,
-      '\'dia\' dd \'de\' MMMM\', às\' H:mm\'h\'',
-      { locale: pt },
+      "'dia' dd 'de' MMMM', às' H:mm'h'",
+      { locale: pt }
     );
 
     await Notification.create({
@@ -137,7 +137,7 @@ class AppointmentController {
 
     if (appointment.user_id !== req.userId) {
       return res.status(401).json({
-        error: 'You don\'t have permission to cancel this appointment.',
+        error: "You don't have permission to cancel this appointment.",
       });
     }
 
